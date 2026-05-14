@@ -2,9 +2,9 @@ from flask import Flask, request, make_response, redirect, url_for, session, ren
 
 app = Flask(__name__)
 
-app.secret_key = 'paiva_secret_key'
+app.secret_key = 'exa816-atividade-2.5'
 
-# Credenciais do login (para fins de demonstração, use algo mais seguro em produção)
+# Credenciais do login
 USUARIO = 'admin'
 SENHA = 'admin'
 
@@ -31,7 +31,7 @@ TEMPLATE_INDEX = '''
         {% if nome %}
             <p>Olá, <strong>{{ nome }}</strong>! Bem-vindo de volta.</p>
         {% else %}
-            <p>Substitua seu nome na URL /nome/[seu_nome]</p>
+            <p>Substitua seu nome na URL</p>
             <p>Exemplo: http://127.0.0.1:5000/nome/Paiva</p>
         {% endif %}
     </div>
