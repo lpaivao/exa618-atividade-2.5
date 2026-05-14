@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Início</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 60px auto;
+        padding: 0 20px;
+      }
+      .card {
+        background: #f5f5f5;
+        border-radius: 8px;
+        padding: 24px;
+        margin-bottom: 16px;
+      }
+      a {
+        color: #0077cc;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Página Inicial</h1>
+
+    <div class="card">
+      <h2>Identificação</h2>
+      {% if nome %}
+      <p>Olá, <strong>{{ nome }}</strong>! Bem-vindo de volta.</p>
+      {% else %}
+      <p>Substitua seu nome na URL</p>
+      <p>Exemplo: http://127.0.0.1:5000/nome/Paiva</p>
+      {% endif %}
+    </div>
+
+    <div class="card">
+      <h2>Contador de Visitas</h2>
+      <p>Você visitou esta página <strong>{{ visitas }}</strong> vez(es).</p>
+    </div>
+
+    <div class="card">
+      <h2>Área Restrita</h2>
+      {% if session.get('usuario') %}
+      <p>
+        Você está logado como: <strong>{{ session.get('usuario') }}</strong>
+      </p>
+      <a href="/perfil">Ver Perfil</a> |
+      <a href="/logout">Fazer Logout</a>
+      {% else %}
+      <p>Você não está autenticado.</p>
+      <a href="/login">Ir para Login</a>
+      {% endif %}
+    </div>
+  </body>
+</html>
